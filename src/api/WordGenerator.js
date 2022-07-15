@@ -30,7 +30,7 @@ const WordGenerator = () => {
 
     return (
         <div id="wordGenerator">
-            <h2>⭐KEYWORD:</h2>
+            <h2><span role="img" aria-label="jsx-ally/accessible-emoji">⭐</span>KEYWORD:</h2>
               { word ? 
                 <h2 id="wordField">{ word }</h2>
                 : (
