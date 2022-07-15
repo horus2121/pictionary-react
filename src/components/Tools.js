@@ -4,9 +4,9 @@ const Tools = () => {
 
     return (
         <div id="menu">
-            <button id="pen"><img src="https://img.icons8.com/material-two-tone/48/undefined/pencil-tip.png" /></button>
-            <button id="eraser"><img src="https://img.icons8.com/material-two-tone/48/undefined/eraser.png" /></button>
-            <button id="clear"><img src="https://img.icons8.com/plumpy/96/undefined/empty-trash.png" /></button>
+            <button id="pen"><img alt="pen" src="https://img.icons8.com/material-two-tone/48/undefined/pencil-tip.png" /></button>
+            <button id="eraser"><img alt="eraser" src="https://img.icons8.com/material-two-tone/48/undefined/eraser.png" /></button>
+            <button id="clear"><img alt="clear" src="https://img.icons8.com/plumpy/96/undefined/empty-trash.png" /></button>
             <select id="color">
                 <option value="#000000">Black</option>
                 <option value="#FF0000">Red</option>
