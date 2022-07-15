@@ -1,0 +1,213 @@
+* {
+    font-family: 'Caveat Brush', cursive;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-image: url("https://images.unsplash.com/photo-1574359219611-a3031f074b2c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mjk4fHxkcmF3aW5nfGVufDB8fDB8fA%3D%3D&auto=format&fit=crop&w=400&q=60");
+    /* background-repeat: no-repeat; */
+    /* background-size: cover; */
+}
+
+h1 {
+    font-size: 6rem;
+    color: #2b2d42;
+    position: absolute;
+    top: 0;
+    left: 36%;
+}
+
+h2 {
+    color: #2b2d42;
+    font-size: 1.5rem;
+}
+
+h2#wordField {
+    color: #b5838d;
+    font-size: 2.5rem;
+}
+
+#wordGenerator {
+    position: absolute;
+    top: 20%;
+    left: 8%;
+}
+
+#canvas {
+    position: absolute;
+    top: 15%;
+    left: 25%;
+    border: 1px solid black;
+    background-color: white;
+}
+
+#menu {
+    position: absolute;
+    top: 68%;
+    left: 34%;
+}
+
+#scoreBoard {
+    position: absolute;
+    top: 20%;
+    left: 78%;
+}
+
+#scoreContainer {
+    display: block;
+    margin-top: 1rem;
+    font-size: 2rem;
+}
+
+button {
+    background-color: transparent;
+    border: none;
+    margin-right: 1rem;
+}
+
+img {
+    height: 2.5rem;
+    width: 2.5rem;
+}
+
+select {
+    height: 2rem;
+    width: 5.5rem;
+    font-size: 1rem;
+    text-align: center;
+    border-color: gray;
+    background-color: transparent;
+    border-radius: 15px;
+}
+
+select#width {
+    text-decoration-line: underline;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+select:hover {
+    cursor: pointer;
+}
+
+@media only screen and (max-width: 1050px) {
+    h1 {
+        font-size: 4rem;
+        top: 3%;
+        left: 31%;
+    }
+
+    h2 {
+        font-size: 1rem;
+    }
+
+    h2#wordField {
+        font-size: 2rem;
+    }
+
+    #wordGenerator {
+        top: 20%;
+        left: 4%;
+    }
+
+    #canvas {
+        top: 15%;
+        left: 25%;
+    }
+
+    #menu {
+        top: 67%;
+        left: 24%;
+    }
+
+    img {
+        height: 2rem;
+        width: 2rem;
+    }
+
+    select {
+        height: 2rem;
+        width: 5rem;
+        font-size: 0.9rem;
+    }
+
+    #scoreBoard {
+        top: 20%;
+        left: 78%;
+    }
+
+    #scoreContainer {
+        margin-top: 1rem;
+        font-size: 1.8rem;
+    }
+
+    button {
+        margin-right: 0.5rem;
+    }
+
+}
+
+@media only screen and (max-width: 580px) {
+    h1 {
+        font-size: 2.5rem;
+        top: 3%;
+        left: 26%;
+    }
+
+    h2 {
+        font-size: 0.5rem;
+    }
+
+    h2#wordField {
+        font-size: 1.5rem;
+    }
+
+    #wordGenerator {
+        top: 13%;
+        left: 15%;
+    }
+
+    #canvas {
+        height: 50%;
+        width: 80%;
+        top: 26%;
+        left: 10%;
+    }
+
+    #menu {
+        top: 78%;
+        left: 13%;
+    }
+
+    img {
+        height: 1.5rem;
+        width: 1.5rem;
+    }
+
+    select {
+        height: 1.5rem;
+        width: 3.8rem;
+        font-size: 0.6rem;
+    }
+
+    #scoreBoard {
+        top: 13%;
+        left: 60%;
+    }
+
+    #scoreContainer {
+        margin-top: 0.5rem;
+        font-size: 1rem;
+    }
+
+    button {
+        margin-right: 0.2rem;
+    }
+
+}
+
+@media only screen and (max-width: 500px) {}
