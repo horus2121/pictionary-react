@@ -1,24 +1,56 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import Tools from './Tools';
 
-const Canvas = props => {
+const Canvas = () => {
 
     const canvasRef = useRef(null);
-    const { startDrawing, endDrawing, draw } = props;
+    const ctxRef = useRef(null);
+    const [isDrawing, setIsDrawing] = useState(false);
 
     useEffect(() => {
         const canvas = canvasRef.current;
         const ctx = canvas.getContext('2d');
 
-    }, [draw]
+        canvas.height = window.innerHeight * 0.5;
+        canvas.width = window.innerWidth * 0.5;
+
+        ctx.lineCap = "round";
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 2;
+        ctxRef.current = ctx;
+    }, []
     )
+
+    const startDrawing = ({ nativeEvent }) => {
+        const { clientX, clientY, target: { offsetLeft, offsetTop } } = nativeEvent;
+        ctxRef.current.beginPath();
+        ctxRef.current.moveTo(clientX - offsetLeft, clientY - offsetTop);
+        setIsDrawing(true);
+    }
+
+    const endDrawing = () => {
+        ctxRef.current.closePath();
+        setIsDrawing(false);
+    }
+
+    const draw = ({ nativeEvent }) => {
+        if (!isDrawing) return;
+
+        const { clientX, clientY, target: { offsetLeft, offsetTop } } = nativeEvent;
+        ctxRef.current.lineTo(clientX - offsetLeft, clientY - offsetTop);
+        ctxRef.current.stroke();
+    }
 
     return (
         <div id='container-canvas'>
             <canvas id='canvas'
                 ref={canvasRef}
-                onMouseDown={e => startDrawing(e)}
-                onMouseUp={ctx => endDrawing(ctx)}
-                onMouseMove={(e, ctx) => draw(e, ctx)}></canvas>
+                onMouseDown={startDrawing}
+                onMouseUp={endDrawing}
+                onMouseMove={draw}></canvas>
+            <Tools
+                ctxRef={ctxRef}
+                canvasRef={canvasRef} />
         </div>
     )
 }
