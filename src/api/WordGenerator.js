@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Container, Typography } from '@material-ui/core';
 
 const WordGenerator = () => {
   const [word, setWord] = useState('');
@@ -26,18 +27,18 @@ const WordGenerator = () => {
   )
 
   return (
-    <div id="wordGenerator">
-      <h2><span role="img" aria-label="jsx-ally/accessible-emoji">⭐</span>KEYWORD:</h2>
+    <Container id="wordGenerator">
+      <Typography id="keyword"><span role="img" aria-label="jsx-ally/accessible-emoji">⭐</span>KEYWORD:</Typography>
       {word ?
-        <h2 id="wordField">{word}</h2>
+        <Typography id="wordField">{word}</Typography>
         : (
-          <div>
-            <h2 style={{ fontSize: "1.5rem" }} id="wordField">Click the button below</h2>
-            <h2 style={{ fontSize: "1.5rem" }} id="wordField">to start or skip word</h2>
-          </div>
+          <Container>
+            <Typography id="wordField">Click the button below</Typography>
+            <Typography id="wordField">to start or skip word</Typography>
+          </Container>
         )}
       <button id="skipWord" onClick={onClick}><img alt="skipword" src="https://img.icons8.com/external-thin-kawalan-studio/48/undefined/external-skip-forward-multimedia-thin-kawalan-studio.png" /></button>
-    </div>
+    </Container>
   )
 }
 

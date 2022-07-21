@@ -1,4 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
+import { Container } from '@material-ui/core';
 import Tools from './Tools';
 
 const Canvas = () => {
@@ -42,7 +43,7 @@ const Canvas = () => {
     }
 
     return (
-        <div id='container-canvas'>
+        <Container id='container-canvas'>
             <canvas id='canvas'
                 ref={canvasRef}
                 onMouseDown={startDrawing}
@@ -51,7 +52,7 @@ const Canvas = () => {
             <Tools
                 ctxRef={ctxRef}
                 canvasRef={canvasRef} />
-        </div>
+        </Container>
     )
 }
 

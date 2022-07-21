@@ -11,7 +11,8 @@ body {
     /* background-size: cover; */
 }
 
-h1 {
+#pictionary {
+    font-family: 'Caveat Brush', cursive;
     font-size: 6rem;
     color: #2b2d42;
     position: absolute;
@@ -19,12 +20,14 @@ h1 {
     left: 36%;
 }
 
-h2 {
+#keyword {
+    font-family: 'Caveat Brush', cursive;
     color: #2b2d42;
     font-size: 1.5rem;
 }
 
-h2#wordField {
+#wordField {
+    font-family: 'Caveat Brush', cursive;
     color: #b5838d;
     font-size: 2.5rem;
 }
@@ -95,17 +98,18 @@ select:hover {
 }
 
 @media only screen and (max-width: 1050px) {
-    h1 {
+    #pictionary {
+        font-family: 'Caveat Brush', cursive;
         font-size: 4rem;
         top: 3%;
         left: 31%;
     }
 
-    h2 {
+    #keyword {
         font-size: 1rem;
     }
 
-    h2#wordField {
+    #wordField {
         font-size: 2rem;
     }
 
@@ -152,17 +156,18 @@ select:hover {
 }
 
 @media only screen and (max-width: 580px) {
-    h1 {
+    #pictionary {
+        font-family: 'Caveat Brush', cursive;
         font-size: 2.5rem;
         top: 3%;
         left: 26%;
     }
 
-    h2 {
+    #keyword {
         font-size: 0.5rem;
     }
 
-    h2#wordField {
+    #wordField {
         font-size: 1.5rem;
     }
 

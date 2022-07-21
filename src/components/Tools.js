@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Container } from '@material-ui/core';
 import Pencil from './tools/Pencil';
 import Eraser from './tools/Eraser';
 import Bin from './tools/Bin';
@@ -38,14 +39,14 @@ const Tools = props => {
     }
 
     return (
-        <div id="menu">
+        <Container id="menu">
             <Pencil pen={pen} />
             <Eraser eraser={eraser} />
             <Bin bin={bin} />
             <SwitchColor switchColor={switchColor} />
             <ChangeWidth changeWidth={changeWidth} />
             {/* <DrawShape /> */}
-        </div>
+        </Container>
     )
 }
 
