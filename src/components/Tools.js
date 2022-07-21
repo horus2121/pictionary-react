@@ -10,9 +10,7 @@ import ChangeWidth from './tools/ChangeWidth';
 const Tools = props => {
 
     const { canvasRef, ctxRef } = props;
-    // eslint-disable-next-line
     const [eraserOn, setEraserOn] = useState(false);
-    const [activedColor, setActivedColor] = useState("#000000");
 
     const pen = () => {
         ctxRef.current.strokeStyle = "black";
@@ -30,12 +28,13 @@ const Tools = props => {
         ctxRef.current.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
     }
 
-    const switchColor = () => {
-        // ctxRef.current.strokeStyle = activedColor;
+    const switchColor = ({ nativeEvent }) => {
+        if (eraserOn) return;
+        ctxRef.current.strokeStyle = nativeEvent.target.value;
     }
 
-    const changeWidth = () => {
-        // ctxRef.current.lineWidth = changeWidthButton.value;
+    const changeWidth = ({ nativeEvent }) => {
+        ctxRef.current.lineWidth = nativeEvent.target.value;
     }
 
     return (

@@ -27,16 +27,12 @@ const WordGenerator = () => {
   )
 
   return (
-    <Container id="wordGenerator">
+    <Container id="wordGenerator" maxWidth="xs">
       <Typography id="keyword"><span role="img" aria-label="jsx-ally/accessible-emoji">⭐</span>KEYWORD:</Typography>
       {word ?
         <Typography id="wordField">{word}</Typography>
-        : (
-          <Container>
-            <Typography id="wordField">Click the button below</Typography>
-            <Typography id="wordField">to start or skip word</Typography>
-          </Container>
-        )}
+        : <Typography id="wordField" display="block">Click the button below to start or skip word</Typography>
+      }
       <button id="skipWord" onClick={onClick}><img alt="skipword" src="https://img.icons8.com/external-thin-kawalan-studio/48/undefined/external-skip-forward-multimedia-thin-kawalan-studio.png" /></button>
     </Container>
   )

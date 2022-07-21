@@ -35,7 +35,7 @@ const widths = [
     },
 ];
 
-const ChangeWidth = ({ ChangeWidth }) => {
+const ChangeWidth = ({ changeWidth }) => {
 
     const renderedWidths = widths.map(width => {
         return (
@@ -44,7 +44,7 @@ const ChangeWidth = ({ ChangeWidth }) => {
     });
 
     return (
-        <select id="width" onChange={ChangeWidth}>
+        <select id="width" onChange={changeWidth}>
             {renderedWidths}
         </select>
     )
