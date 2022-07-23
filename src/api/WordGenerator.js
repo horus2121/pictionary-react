@@ -3,36 +3,42 @@ import { Container, Typography } from '@material-ui/core';
 
 const WordGenerator = () => {
   const [word, setWord] = useState('');
-  const [click, setClick] = useState(false);
+  const [wordBuffer, setWordBuffer] = useState('');
+  const [click, setClick] = useState(0);
 
   const onClick = () => {
-    setClick(!click);
+    setClick(click + 1);
   }
 
   useEffect(() => {
 
-    async function fetchData() {
+    async function fetchWord() {
       try {
         let res = await fetch('https://random-word-api.herokuapp.com/word')
         let json = await res.json()
-        setWord(json[0])
+        setWordBuffer(json[0])
       } catch {
-        setWord('No word found!')
+        setWordBuffer('No word found!')
       }
     }
 
-    fetchData();
+    fetchWord();
 
   }, [click]
   )
 
+  useEffect(() => {
+
+    (wordBuffer && click) ? setWord(wordBuffer) : setWord("Click the button below to start or skip word")
+
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [wordBuffer]
+  )
+
   return (
-    <Container id="wordGenerator" maxWidth="xs">
+    <Container id="wordGenerator" maxWidth="xs" >
       <Typography id="keyword"><span role="img" aria-label="jsx-ally/accessible-emoji">⭐</span>KEYWORD:</Typography>
-      {word ?
-        <Typography id="wordField">{word}</Typography>
-        : <Typography id="wordField" display="block">Click the button below to start or skip word</Typography>
-      }
+      <Typography id="wordField">{word}</Typography>
       <button id="skipWord" onClick={onClick}><img alt="skipword" src="https://img.icons8.com/external-thin-kawalan-studio/48/undefined/external-skip-forward-multimedia-thin-kawalan-studio.png" /></button>
     </Container>
   )

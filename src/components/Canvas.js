@@ -2,6 +2,9 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Container } from '@material-ui/core';
 import Tools from './Tools';
 
+const penCursor = "url('https://img.icons8.com/ios-glyphs/30/undefined/quill-pen.png') 0 30, auto"
+const eraserCursor = "url('https://img.icons8.com/metro/26/undefined/eraser.png') 0 26, auto"
+
 const Canvas = () => {
 
     const canvasRef = useRef(null);
@@ -18,6 +21,7 @@ const Canvas = () => {
         ctx.lineCap = "round";
         ctx.strokeStyle = "black";
         ctx.lineWidth = 2;
+        canvasRef.current.style.cursor = penCursor;
         ctxRef.current = ctx;
     }, []
     )
@@ -51,7 +55,9 @@ const Canvas = () => {
                 onMouseMove={draw}></canvas>
             <Tools
                 ctxRef={ctxRef}
-                canvasRef={canvasRef} />
+                canvasRef={canvasRef}
+                penCursor={penCursor}
+                eraserCursor={eraserCursor} />
         </Container>
     )
 }
