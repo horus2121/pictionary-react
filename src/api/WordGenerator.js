@@ -1,13 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { Container, Typography } from '@material-ui/core';
 
-const WordGenerator = () => {
+const WordGenerator = props => {
+
+  const { handleReset } = props;
   const [word, setWord] = useState('');
   const [wordBuffer, setWordBuffer] = useState('');
   const [click, setClick] = useState(0);
 
   const onClick = () => {
     setClick(click + 1);
+    handleReset();
   }
 
   useEffect(() => {

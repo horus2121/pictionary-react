@@ -1,5 +1,8 @@
 import React, { useState } from 'react';
-import { Container } from '@material-ui/core';
+import { Container, Typography, ButtonGroup } from '@material-ui/core';
+import AddRose from './scoreBoard/AddRose';
+import AddPoo from './scoreBoard/AddPoo';
+import ResetScore from './scoreBoard/ResetScore';
 
 const ScoreBoard = () => {
 
@@ -21,12 +24,14 @@ const ScoreBoard = () => {
 
     return (
         <Container id="scoreBoard">
-            <button id="yes" onClick={addRose}><img alt="yes" src="https://img.icons8.com/cotton/64/undefined/facebook-like--v2.png" /></button>
-            <button id="no" onClick={addPoo}><img alt="no" src="https://img.icons8.com/cotton/64/undefined/thumbs-down--v4.png" /></button>
-            <button id="resetScore" onClick={resetScore}><img alt="reset score" src="https://img.icons8.com/doodle/96/undefined/replay--v1.png" /></button>
+            <ButtonGroup variant="text" aria-label="text button group">
+                <AddRose addRose={addRose} />
+                <AddPoo addPoo={addPoo} />
+                <ResetScore resetScore={resetScore} />
+            </ButtonGroup>
             <Container id="scoreContainer">
-                <p><span role="img" aria-label="jsx-ally/accessible-emoji">🌹</span><span id="plusSign">+</span><span id="numOfRose">{numOfRose}</span></p>
-                <p><span role="img" aria-label="jsx-ally/accessible-emoji">💩</span><span id="plusSign">+</span><span id="numOfPoo">{numOfPoo}</span></p>
+                <Typography variant="h4"><span role="img" aria-label="jsx-ally/accessible-emoji">🌹</span><span id="plusSign">+</span><span id="numOfRose">{numOfRose}</span></Typography>
+                <Typography variant="h4"><span role="img" aria-label="jsx-ally/accessible-emoji">💩</span><span id="plusSign">+</span><span id="numOfPoo">{numOfPoo}</span></Typography>
             </Container>
         </Container>
     )

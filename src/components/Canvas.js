@@ -5,8 +5,9 @@ import Tools from './Tools';
 const penCursor = "url('https://img.icons8.com/ios-glyphs/30/undefined/quill-pen.png') 0 30, auto"
 const eraserCursor = "url('https://img.icons8.com/metro/26/undefined/eraser.png') 0 26, auto"
 
-const Canvas = () => {
+const Canvas = props => {
 
+    const { reset, handleReset } = props;
     const canvasRef = useRef(null);
     const ctxRef = useRef(null);
     const [isDrawing, setIsDrawing] = useState(false);
@@ -54,6 +55,8 @@ const Canvas = () => {
                 onMouseUp={endDrawing}
                 onMouseMove={draw}></canvas>
             <Tools
+                reset={reset}
+                handleReset={handleReset}
                 ctxRef={ctxRef}
                 canvasRef={canvasRef}
                 penCursor={penCursor}

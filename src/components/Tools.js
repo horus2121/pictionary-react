@@ -9,7 +9,7 @@ import ChangeWidth from './tools/ChangeWidth';
 
 const Tools = props => {
 
-    const { canvasRef, ctxRef, penCursor, eraserCursor } = props;
+    const { canvasRef, ctxRef, penCursor, eraserCursor, reset, handleReset } = props;
     const [eraserOn, setEraserOn] = useState(false);
     // const [activedColor, setActivedColor] = useState("black");
 
@@ -27,12 +27,12 @@ const Tools = props => {
 
     const bin = () => {
         ctxRef.current.clearRect(0, 0, canvasRef.current.width, canvasRef.current.height);
+        handleReset();
     }
 
-
-    const switchColor = ({ nativeEvent }) => {
+    const switchColor = (nativeEvent) => {
         if (eraserOn) return;
-        ctxRef.current.strokeStyle = nativeEvent.target.value;
+        // ctxRef.current.strokeStyle = nativeEvent.target.value;
         // console.log(nativeEvent.target.value)
         // setActivedColor(nativeEvent.target.value);
         // console.log(activedColor)
@@ -51,6 +51,7 @@ const Tools = props => {
             <SwitchColor switchColor={switchColor} />
             <ChangeWidth changeWidth={changeWidth} />
             {/* <DrawShape /> */}
+            {reset ? bin() : null}
         </Container>
     )
 }
